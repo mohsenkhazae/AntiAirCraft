@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 495e93cdbc0af4469b186e29dfe2caf0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: coffe house
+    100004: donut house
+    100006: hotdog house
+    100008: house
+    100010: icescream house
+    100012: pizzaria
+    400000: //RootNode
+    400002: coffe house
+    400004: donut house
+    400006: hotdog house
+    400008: house
+    400010: icescream house
+    400012: pizzaria
+    2100000: Trang
+    2100002: Xanh_nhat
+    2100004: Blue
+    2100006: Hong_Dam
+    2100008: Cam_Nhat
+    2100010: lambert1
+    2100012: Do_do
+    2100014: Den
+    2100016: Xanh_Kinh
+    2100018: Burger_Shop_Coffee_House_Brown_Dam
+    2100020: Burger_Shop_Coffee_House_White
+    2100022: Burger_Shop_Coffee_House_Black
+    2100024: Xam_xanh_dam
+    2100026: Kem
+    2100028: Xanh_la_dam
+    2100030: Coffee_Logo
+    2100032: Nau_Nen
+    2100034: Vang
+    2100036: Hong
+    2100038: Xam_xanh
+    2100040: Xanh_la
+    2100042: Xanh_lo
+    2100044: Cam_dat
+    2100046: Vang_nhat
+    2100048: Pizza
+    2300000: coffe house
+    2300002: donut house
+    2300004: hotdog house
+    2300006: house
+    2300008: icescream house
+    2300010: pizzaria
+    3300000: coffe house
+    3300002: donut house
+    3300004: hotdog house
+    3300006: house
+    3300008: icescream house
+    3300010: pizzaria
+    4300000: icescream house
+    4300002: coffe house
+    4300004: donut house
+    4300006: house
+    4300008: hotdog house
+    4300010: pizzaria
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.15
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0015
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
