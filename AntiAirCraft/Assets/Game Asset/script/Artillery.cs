@@ -21,6 +21,7 @@ public class Artillery : MonoBehaviour
             fireEffect.GetComponent<ParticleSystem>().Play();
             cloneprojectile.GetComponent<projectile>().Artillery = this;
             cloneprojectile.GetComponent<projectile>().power = power;
+            GetComponent<AudioSource>().Play();
             countShoot++;
         }
     }

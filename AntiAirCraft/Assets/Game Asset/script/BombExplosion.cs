@@ -20,8 +20,8 @@ public class BombExplosion : MonoBehaviour
             if (collision.gameObject.TryGetComponent(out TargetBuilding targetBuilding))
             {
                 //targetBuilding.InUse = true;
-                targetBuilding.building.SetActive(false);
-                targetBuilding.crashBuilding.SetActive(true);
+                if(targetBuilding.building) targetBuilding.building.SetActive(false);
+                if(targetBuilding.crashBuilding) targetBuilding.crashBuilding.SetActive(true);
             }
         }
         ContactPoint contact = collision.contacts[0];

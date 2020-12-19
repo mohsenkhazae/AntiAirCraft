@@ -619,6 +619,7 @@
     <Compile Include="Assets\Game Asset\script\AirCraft.cs" />
     <Compile Include="Assets\Game Asset\script\Artillery.cs" />
     <Compile Include="Assets\Game Asset\script\BombExplosion.cs" />
+    <Compile Include="Assets\Game Asset\script\FPSDisplay.cs" />
     <Compile Include="Assets\Game Asset\script\ManageAirCraft.cs" />
     <Compile Include="Assets\Game Asset\script\TargetBuilding.cs" />
     <Compile Include="Assets\Game Asset\script\projectile.cs" />
