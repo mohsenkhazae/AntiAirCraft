@@ -11,6 +11,7 @@ public class Artillery : MonoBehaviour
     public int fireRate;
     public int fireInScene;
     public int power;
+    public AudioSource fireAudio;
 
     public void Fire()
     {
@@ -21,14 +22,19 @@ public class Artillery : MonoBehaviour
             fireEffect.GetComponent<ParticleSystem>().Play();
             cloneprojectile.GetComponent<projectile>().Artillery = this;
             cloneprojectile.GetComponent<projectile>().power = power;
-            GetComponent<AudioSource>().Play();
+            if (fireAudio.isPlaying)
+            {
+                fireAudio.Stop();
+                fireAudio.Play();
+            }
+            else { fireAudio.Play(); }
             countShoot++;
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        fireAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
