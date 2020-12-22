@@ -1087,16 +1087,22 @@ MonoBehaviour:
   - {fileID: 946940700}
   TargetLeft: 0
   AntiAirRaidCenter: {fileID: 224994165411422320}
-  spawnRate: 4
   airCraftObject:
   - {fileID: 1895020966332892, guid: e103a93a5acd2c14ebfb4eef009ebdc9, type: 3}
   - {fileID: 1109334431578040, guid: 568fc47ce4a5fc94fa5a465b0ac82615, type: 3}
   - {fileID: 1868458692392184, guid: d592535c9e5b1d043a53a25e3890f501, type: 3}
-  airCraft: []
   currentAirCraft: {fileID: 0}
   Lines: 00000000
   heightLines: 7
   power: 100
+  searchCountdown: 1
+  timeBetwenWave: 5
+  waveCountDown: 0
+  nextWave: 0
+  wave:
+    number: 0
+    count: 12
+    rate: 4
 --- !u!4 &257009290
 Transform:
   m_ObjectHideFlags: 0
