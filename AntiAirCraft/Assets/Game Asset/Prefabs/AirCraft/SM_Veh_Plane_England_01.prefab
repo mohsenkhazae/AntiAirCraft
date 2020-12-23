@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 4179179839010190}
   - component: {fileID: 33580878257106136}
   - component: {fileID: 23837835134666846}
-  - component: {fileID: 95657737046957882}
   - component: {fileID: 6713582665017384316}
   - component: {fileID: 418341899385482487}
   - component: {fileID: 5419207657938605437}
@@ -174,25 +173,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &95657737046957882
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109334431578040}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8ba9ddccf1b86c8419ba1fca791b7009, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6713582665017384316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  speed: 30
-  baseSpeed: 30
+  speed: 28
+  baseSpeed: 28
+  score: 200
   currentLine: 0
   direction: 0
   move: 0

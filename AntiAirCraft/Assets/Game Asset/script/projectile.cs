@@ -25,6 +25,7 @@ public class projectile : MonoBehaviour
             air.health -= power;
             if (air.health == 0)
             {
+                air.manageAirCraft.score += air.score;
                 Destroy(collision.gameObject);
             }
         }
@@ -38,21 +39,13 @@ public class projectile : MonoBehaviour
         Instantiate(explosionPrefab, pos, rot);
         Destroy(gameObject);
     }
-    //void OnBecameInvisible()
-    //{
-    //    if (Artillery)
-    //    {
-    //        Artillery.countShoot--;
-    //        Debug.Log("OnBecameInvisible");
-    //        Destroy(gameObject);
-    //    }
-    //}
+
     // Update is called once per frame
     void Update()
     {
         if (!GeometryUtility.TestPlanesAABB(planes, objCollider.bounds))
         {
-            Debug.Log("Nothing has been detected");
+            //Debug.Log("Nothing has been detected");
             if (Artillery)
             {
                 Artillery.countShoot--;

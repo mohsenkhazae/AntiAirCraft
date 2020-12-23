@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ManageAirCraft : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class ManageAirCraft : MonoBehaviour
     private int indexAir = 0;
     public bool[] Lines;
     public float heightLines = 8;
-    public int power;
+    public int score;
+    public Text scoreText;
+    public Text waveNumber;
+    public Text waveOnline;
+    public GameObject wavePanel;
     public float searchCountdown=1;
     public float timeBetwenWave = 5;
     public float waveCountDown;
@@ -31,6 +36,7 @@ public class ManageAirCraft : MonoBehaviour
         public float fireRate;
     }
     public Wave wave;
+
     [System.Serializable]
     public class speedVariable
     {
@@ -61,6 +67,7 @@ public class ManageAirCraft : MonoBehaviour
         public float f3;
     }
     public healthVariable HealthV;
+
     [System.Serializable]
     public class powerVariable
     {
@@ -75,7 +82,8 @@ public class ManageAirCraft : MonoBehaviour
         public float f2;
         public float f3;
     }
-    public healthVariable PowerV;
+    public powerVariable PowerV;
+
     [System.Serializable]
     public class FireRateVariable
     {
@@ -90,7 +98,7 @@ public class ManageAirCraft : MonoBehaviour
         public float f2;
         public float f3;
     }
-    public healthVariable FireRateV;
+    public FireRateVariable FireRateV;
 
     // Start is called before the first frame update
     void Start()
@@ -126,12 +134,16 @@ public class ManageAirCraft : MonoBehaviour
 
         if (TargetLeft == 0)
         {
-            GameOwer();
+            GameOver();
         }
+        scoreText.text = score.ToString();
+
     }
     IEnumerator SpawnWave()
     {
         state = StateSpawn.SPAWNING;
+        wavePanel.SetActive(false);
+        waveOnline.text = wave.number.ToString();
         //do in wave
         Debug.Log("spawning wave:" + wave.number);
         for (int i = 0; i < wave.enemyCount; i++)
@@ -151,7 +163,7 @@ public class ManageAirCraft : MonoBehaviour
         currentAirCraft = cloneAirCraft.GetComponent<AirCraft>();
         currentAirCraft.currentLine = 0;
         currentAirCraft.health = wave.enemyHealth;
-        currentAirCraft.speed = wave.enemySpeed*currentAirCraft.baseSpeed;
+        currentAirCraft.speed = wave.enemySpeed+currentAirCraft.baseSpeed;
         if (Point == 0)/// spawnpoint=leftpoint
         {
             currentAirCraft.direction = AirCraft.Direction.west;
@@ -168,6 +180,8 @@ public class ManageAirCraft : MonoBehaviour
     void WaveCompleted()///begin a new wave
     {
         Debug.Log("wave completed");
+        waveNumber.text = wave.number.ToString();
+        wavePanel.SetActive(true);
         state = StateSpawn.COUNTING;
         waveCountDown = timeBetwenWave;
         initialNextWave();
@@ -215,8 +229,9 @@ public class ManageAirCraft : MonoBehaviour
         return true;
     }
 
-    public void GameOwer()
+    public void GameOver()
     {
-        Time.timeScale = 0;
+        Debug.Log("GameOver");
+        //Time.timeScale = 0;
     }
 }

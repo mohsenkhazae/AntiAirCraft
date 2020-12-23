@@ -1140,6 +1140,7 @@ MonoBehaviour:
   health: 0
   speed: 25
   baseSpeed: 25
+  score: 100
   currentLine: 0
   direction: 0
   move: 0

@@ -1537,8 +1537,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  speed: 40
-  baseSpeed: 40
+  speed: 32
+  baseSpeed: 32
+  score: 300
   currentLine: 0
   direction: 0
   move: 0

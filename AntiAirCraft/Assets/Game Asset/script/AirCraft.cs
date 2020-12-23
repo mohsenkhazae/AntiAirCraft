@@ -7,6 +7,7 @@ public class AirCraft : MonoBehaviour
     public float health;
     public float speed;
     public float baseSpeed;
+    public int score;
     public int currentLine;
     public enum Direction { east, west}
     public Direction direction;
