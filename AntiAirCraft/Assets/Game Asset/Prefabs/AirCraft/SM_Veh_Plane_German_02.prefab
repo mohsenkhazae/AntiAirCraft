@@ -1137,9 +1137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac36b77f6e29c340ad597e77ddc5a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
-  currentLine: 0
+  health: 0
   speed: 25
+  baseSpeed: 25
+  currentLine: 0
   direction: 0
   move: 0
   letMove: 0

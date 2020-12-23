@@ -127,4 +127,4 @@ MonoBehaviour:
   explosionPrefab: {fileID: 7554648173594130900, guid: 0a3d52fdfb8c548028c8f813ccd5641d,
     type: 3}
   Artillery: {fileID: 0}
-  power: 100
+  power: 1

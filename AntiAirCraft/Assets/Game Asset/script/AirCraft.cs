@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AirCraft : MonoBehaviour
 {
-    public int power;
+    public float health;
+    public float speed;
+    public float baseSpeed;
     public int currentLine;
-    public float speed = 1;
     public enum Direction { east, west}
     public Direction direction;
     public bool move;

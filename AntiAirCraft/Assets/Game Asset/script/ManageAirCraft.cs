@@ -19,15 +19,78 @@ public class ManageAirCraft : MonoBehaviour
     public float waveCountDown;
     public enum StateSpawn { COUNTING,SPAWNING,WAITING}
     private StateSpawn state = StateSpawn.COUNTING;
-    public int nextWave=0;
     [System.Serializable]
     public class Wave
     {
         public int number;
-        public int count;
-        public float rate;
+        public int enemyCount;
+        public float spawnRate;
+        public float enemyHealth;
+        public float enemySpeed;
+        public float firePower;
+        public float fireRate;
     }
     public Wave wave;
+    [System.Serializable]
+    public class speedVariable
+    {
+        public float baseLevel;
+        public float hardLevel;
+        public float f1Factor;
+        public float f1Power;
+        public float f2Factor;
+        public float f2Power;
+        public float f3Deno;
+        public float f1;
+        public float f2;
+        public float f3;
+    }
+    public speedVariable SpeedV;
+    [System.Serializable]
+    public class healthVariable
+    {
+        public float baseLevel;
+        public float hardLevel;
+        public float f1Factor;
+        public float f1Power;
+        public float f2Factor;
+        public float f2Power;
+        public float f3Deno;
+        public float f1;
+        public float f2;
+        public float f3;
+    }
+    public healthVariable HealthV;
+    [System.Serializable]
+    public class powerVariable
+    {
+        public float baseLevel;
+        public float hardLevel;
+        public float f1Factor;
+        public float f1Power;
+        public float f2Factor;
+        public float f2Power;
+        public float f3Deno;
+        public float f1;
+        public float f2;
+        public float f3;
+    }
+    public healthVariable PowerV;
+    [System.Serializable]
+    public class FireRateVariable
+    {
+        public float baseLevel;
+        public float hardLevel;
+        public float f1Factor;
+        public float f1Power;
+        public float f2Factor;
+        public float f2Power;
+        public float f3Deno;
+        public float f1;
+        public float f2;
+        public float f3;
+    }
+    public healthVariable FireRateV;
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +134,10 @@ public class ManageAirCraft : MonoBehaviour
         state = StateSpawn.SPAWNING;
         //do in wave
         Debug.Log("spawning wave:" + wave.number);
-        for (int i = 0; i < wave.count; i++)
+        for (int i = 0; i < wave.enemyCount; i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(wave.rate);
+            yield return new WaitForSeconds(wave.spawnRate);
         }
         state = StateSpawn.WAITING;
         yield break;
@@ -87,7 +150,8 @@ public class ManageAirCraft : MonoBehaviour
         GameObject cloneAirCraft = Instantiate(airCraftObject[AirType], spawnPoint[Point].transform.position, spawnPoint[Point].transform.rotation);
         currentAirCraft = cloneAirCraft.GetComponent<AirCraft>();
         currentAirCraft.currentLine = 0;
-        currentAirCraft.power = 100;
+        currentAirCraft.health = wave.enemyHealth;
+        currentAirCraft.speed = wave.enemySpeed*currentAirCraft.baseSpeed;
         if (Point == 0)/// spawnpoint=leftpoint
         {
             currentAirCraft.direction = AirCraft.Direction.west;
@@ -106,9 +170,37 @@ public class ManageAirCraft : MonoBehaviour
         Debug.Log("wave completed");
         state = StateSpawn.COUNTING;
         waveCountDown = timeBetwenWave;
-
-        nextWave++;
+        initialNextWave();
+        wave.number++;
     }
+
+    void initialNextWave()
+    {
+        SpeedV.f1 = 1 + SpeedV.f1Factor * Mathf.Pow(wave.number - SpeedV.baseLevel, SpeedV.f1Power);
+        SpeedV.f2 = 1 + SpeedV.f2Factor * Mathf.Pow(wave.number - SpeedV.baseLevel, SpeedV.f2Power);
+        SpeedV.f3 = Mathf.Min(1, (Mathf.Max(wave.number, SpeedV.hardLevel + SpeedV.baseLevel) - (SpeedV.hardLevel - SpeedV.baseLevel)) / SpeedV.f3Deno);
+        wave.enemySpeed = 1 + (SpeedV.f1 - 1) * (1 - SpeedV.f3) + (SpeedV.f2 - 1) * SpeedV.f3;
+        HealthV.f1 = 1 + HealthV.f1Factor * Mathf.Pow(wave.number - HealthV.baseLevel, HealthV.f1Power);
+        HealthV.f2 = 1 + HealthV.f2Factor * Mathf.Pow(wave.number - HealthV.baseLevel, HealthV.f2Power);
+        HealthV.f3 = Mathf.Min(1, (Mathf.Max(wave.number, HealthV.hardLevel + HealthV.baseLevel) - (HealthV.hardLevel - HealthV.baseLevel)) / HealthV.f3Deno);
+        wave.enemyHealth = 1 + (HealthV.f1 - 1) * (1 - HealthV.f3) + (HealthV.f2 - 1) * HealthV.f3;
+        PowerV.f1 = 1 + PowerV.f1Factor * Mathf.Pow(wave.number - PowerV.baseLevel, PowerV.f1Power);
+        PowerV.f2 = 1 + PowerV.f2Factor * Mathf.Pow(wave.number - PowerV.baseLevel, PowerV.f2Power);
+        PowerV.f3 = Mathf.Min(1, (Mathf.Max(wave.number, PowerV.hardLevel + PowerV.baseLevel) - (PowerV.hardLevel - PowerV.baseLevel)) / PowerV.f3Deno);
+        wave.firePower = 1 + (PowerV.f1 - 1) * (1 - PowerV.f3) + (PowerV.f2 - 1) * PowerV.f3;
+        FireRateV.f1 = 1 + FireRateV.f1Factor * Mathf.Pow(wave.number - FireRateV.baseLevel, FireRateV.f1Power);
+        FireRateV.f2 = 1 + FireRateV.f2Factor * Mathf.Pow(wave.number - FireRateV.baseLevel, FireRateV.f2Power);
+        FireRateV.f3 = Mathf.Min(1, (Mathf.Max(wave.number, FireRateV.hardLevel + FireRateV.baseLevel) - (FireRateV.hardLevel - FireRateV.baseLevel)) / FireRateV.f3Deno);
+        wave.fireRate = 1 + (FireRateV.f1 - 1) * (1 - FireRateV.f3) + (FireRateV.f2 - 1) * FireRateV.f3;
+
+        Artillery[] artilleries = FindObjectsOfType<Artillery>();
+        foreach (var item in artilleries)
+        {
+            item.firePower = wave.firePower;
+            item.fireRate = wave.fireRate;
+        }
+    }
+
     bool EnemyIsAlive()
     {
         searchCountdown -=Time.deltaTime;

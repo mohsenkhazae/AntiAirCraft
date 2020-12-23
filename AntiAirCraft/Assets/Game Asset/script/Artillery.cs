@@ -8,9 +8,9 @@ public class Artillery : MonoBehaviour
     public Transform firePoint;
     public GameObject fireEffect;
     public int countShoot;
-    public int fireRate;
+    public float fireRate;
     public int fireInScene;
-    public int power;
+    public float firePower;
     public AudioSource fireAudio;
 
     public void Fire()
@@ -21,7 +21,7 @@ public class Artillery : MonoBehaviour
             cloneprojectile.GetComponent<Rigidbody>().AddForce(cloneprojectile.transform.forward * 5000, ForceMode.Acceleration);
             fireEffect.GetComponent<ParticleSystem>().Play();
             cloneprojectile.GetComponent<projectile>().Artillery = this;
-            cloneprojectile.GetComponent<projectile>().power = power;
+            cloneprojectile.GetComponent<projectile>().power = firePower;
             if (fireAudio.isPlaying)
             {
                 fireAudio.Stop();

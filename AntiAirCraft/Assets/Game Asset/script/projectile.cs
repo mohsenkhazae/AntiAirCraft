@@ -6,7 +6,7 @@ public class projectile : MonoBehaviour
 {
     public Transform explosionPrefab;
     public Artillery Artillery;
-    public int power;
+    public float power;
 
     Collider objCollider;
     Plane[] planes;
@@ -22,8 +22,8 @@ public class projectile : MonoBehaviour
         {
             AirCraft air = collision.collider.gameObject.GetComponent<AirCraft>();
             air.manageAirCraft.Lines[air.currentLine] = false;
-            air.power -= power;
-            if (air.power == 0)
+            air.health -= power;
+            if (air.health == 0)
             {
                 Destroy(collision.gameObject);
             }

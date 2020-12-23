@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4464314, g: 0.4962511, b: 0.57472956, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1096,13 +1096,60 @@ MonoBehaviour:
   heightLines: 7
   power: 100
   searchCountdown: 1
-  timeBetwenWave: 5
+  timeBetwenWave: 3
   waveCountDown: 0
-  nextWave: 0
   wave:
-    number: 0
-    count: 12
-    rate: 4
+    number: 1
+    enemyCount: 3
+    spawnRate: 4
+    enemyHealth: 1
+    enemySpeed: 1
+    firePower: 1
+    fireRate: 1
+  SpeedV:
+    baseLevel: 1
+    hardLevel: 70
+    f1Factor: 0.0075
+    f1Power: 2
+    f2Factor: 1.6
+    f2Power: 0.75
+    f3Deno: 15
+    f1: 0
+    f2: 0
+    f3: 0
+  HealthV:
+    baseLevel: 1
+    hardLevel: 70
+    f1Factor: 0.015
+    f1Power: 2
+    f2Factor: 10.7332
+    f2Power: 0.5
+    f3Deno: 15
+    f1: 0
+    f2: 0
+    f3: 0
+  PowerV:
+    baseLevel: 1
+    hardLevel: 70
+    f1Factor: 0.015
+    f1Power: 2
+    f2Factor: 10.7332
+    f2Power: 0.5
+    f3Deno: 15
+    f1: 0
+    f2: 0
+    f3: 0
+  FireRateV:
+    baseLevel: 1
+    hardLevel: 70
+    f1Factor: 0.0075
+    f1Power: 2
+    f2Factor: 1.6
+    f2Power: 0.75
+    f3Deno: 15
+    f1: 0
+    f2: 0
+    f3: 0
 --- !u!4 &257009290
 Transform:
   m_ObjectHideFlags: 0
@@ -4388,7 +4435,7 @@ MonoBehaviour:
   countShoot: 0
   fireRate: 0
   fireInScene: 2
-  power: 100
+  firePower: 1
   fireAudio: {fileID: 0}
 --- !u!82 &718151302
 AudioSource:
@@ -10691,7 +10738,7 @@ MonoBehaviour:
   countShoot: 0
   fireRate: 0
   fireInScene: 2
-  power: 100
+  firePower: 1
   fireAudio: {fileID: 0}
 --- !u!1 &224994165014255651
 GameObject:
@@ -10843,7 +10890,7 @@ MonoBehaviour:
   countShoot: 0
   fireRate: 0
   fireInScene: 2
-  power: 100
+  firePower: 1
   fireAudio: {fileID: 0}
 --- !u!82 &224994165411422322
 AudioSource:
