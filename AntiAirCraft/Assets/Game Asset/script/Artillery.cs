@@ -12,6 +12,7 @@ public class Artillery : MonoBehaviour
     public int fireInScene;
     public float firePower;
     public AudioSource fireAudio;
+    public Animation[] canonAnimation;
 
     public void Fire()
     {
@@ -22,6 +23,13 @@ public class Artillery : MonoBehaviour
             fireEffect.GetComponent<ParticleSystem>().Play();
             cloneprojectile.GetComponent<projectile>().Artillery = this;
             cloneprojectile.GetComponent<projectile>().power = firePower;
+            if (canonAnimation.Length > 0)
+            {
+                foreach (var item in canonAnimation)
+                {
+                    item.Play();
+                }
+            }
             if (fireAudio.isPlaying)
             {
                 fireAudio.Stop();
@@ -35,14 +43,11 @@ public class Artillery : MonoBehaviour
     void Start()
     {
         fireAudio = GetComponent<AudioSource>();
+        canonAnimation = gameObject.GetComponentsInChildren<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Fire();
-        }
     }
 }

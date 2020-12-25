@@ -21,11 +21,12 @@ public class projectile : MonoBehaviour
         if (collision.collider.tag == "AirCraft")
         {
             AirCraft air = collision.collider.gameObject.GetComponent<AirCraft>();
-            air.manageAirCraft.Lines[air.currentLine] = false;
             air.health -= power;
-            if (air.health == 0)
+            if (air.health < 0)
             {
+                air.manageAirCraft.Lines[air.currentLine] = false;
                 air.manageAirCraft.score += air.score;
+                air.manageAirCraft.scoreText.text = air.manageAirCraft.score.ToString();
                 Destroy(collision.gameObject);
             }
         }

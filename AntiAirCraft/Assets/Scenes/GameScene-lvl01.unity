@@ -1261,7 +1261,7 @@ MonoBehaviour:
   timeBetwenWave: 3
   waveCountDown: 0
   wave:
-    number: 1
+    number: 50
     enemyCount: 8
     spawnRate: 4
     enemyHealth: 1
@@ -1271,21 +1271,21 @@ MonoBehaviour:
   SpeedV:
     baseLevel: 1
     hardLevel: 70
-    f1Factor: 0.0075
-    f1Power: 2
-    f2Factor: 1.6
+    f1Factor: 0.005
+    f1Power: 1.75
+    f2Factor: 0.4
     f2Power: 0.75
-    f3Deno: 15
+    f3Deno: 20
     f1: 0
     f2: 0
     f3: 0
   HealthV:
     baseLevel: 1
     hardLevel: 70
-    f1Factor: 0.015
+    f1Factor: 0.011
     f1Power: 2
-    f2Factor: 10.7332
-    f2Power: 0.5
+    f2Factor: 2.4
+    f2Power: 0.75
     f3Deno: 15
     f1: 0
     f2: 0
@@ -1293,10 +1293,10 @@ MonoBehaviour:
   PowerV:
     baseLevel: 1
     hardLevel: 70
-    f1Factor: 0.015
+    f1Factor: 0.0075
     f1Power: 2
-    f2Factor: 10.7332
-    f2Power: 0.5
+    f2Factor: 1.6
+    f2Power: 0.75
     f3Deno: 15
     f1: 0
     f2: 0
@@ -3878,14 +3878,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6792995545360269904}
-  m_LocalRotation: {x: -0.40378484, y: -0, z: -0, w: 0.91485405}
-  m_LocalPosition: {x: 0.04524847, y: 0, z: 0}
+  m_LocalRotation: {x: -0.35020733, y: -0, z: -0, w: 0.9366723}
+  m_LocalPosition: {x: -0.003921509, y: 0, z: -0.00024843216}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 723998560258455442}
   m_Father: {fileID: 1156558712}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -47.63, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -41, y: 0, z: 0}
 --- !u!1 &530120078
 GameObject:
   m_ObjectHideFlags: 0
@@ -4419,7 +4419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -174, y: -35}
+  m_AnchoredPosition: {x: -102, y: -35}
   m_SizeDelta: {x: 340, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &693490635 stripped
@@ -4614,7 +4614,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &718151301
 MonoBehaviour:
@@ -4636,6 +4636,7 @@ MonoBehaviour:
   fireInScene: 2
   firePower: 1
   fireAudio: {fileID: 0}
+  canonAnimation: []
 --- !u!82 &718151302
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4648,7 +4649,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 010c51ce0d7618848b55efeac7d4906b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4656,9 +4657,9 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 4
   MaxDistance: 500
-  Pan2D: -1
+  Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -4692,7 +4693,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4874,6 +4875,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &749941621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749941622}
+  - component: {fileID: 749941623}
+  m_Layer: 0
+  m_Name: canon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749941622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749941621}
+  m_LocalRotation: {x: -0.35020733, y: 0, z: 0, w: 0.9366723}
+  m_LocalPosition: {x: 0.0979258, y: 2.555166, z: 1.220242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1156558712}
+  m_Father: {fileID: 9121041558528557024}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -41, y: 0, z: 0}
+--- !u!111 &749941623
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749941621}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 518bcf053586c2a4186d83f500be472c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 518bcf053586c2a4186d83f500be472c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &765158824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5470,13 +5519,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.004468042, y: 0.99999005, z: -0, w: 0}
-  m_LocalPosition: {x: -0.7, y: 16.9, z: 143.2}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.1, y: 17.55, z: 143.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -0.512}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5863,13 +5912,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6419275398243736577}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.097924404, y: 2.5551665, z: 1.2202476}
+  m_LocalRotation: {x: 0.35020733, y: -0, z: -0, w: 0.9366723}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 530120077}
-  m_Father: {fileID: 9121041558528557024}
-  m_RootOrder: 1
+  m_Father: {fileID: 749941622}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1168148917
 PrefabInstance:
@@ -8668,7 +8717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 174, y: -35}
+  m_AnchoredPosition: {x: 246, y: -35}
   m_SizeDelta: {x: 340, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1633051692
@@ -10181,7 +10230,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1992237243
 Transform:
@@ -11176,7 +11225,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!1 &142979753694499765
 GameObject:
@@ -11192,7 +11241,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!23 &162988483590236044
 MeshRenderer:
@@ -11286,7 +11335,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!1 &224994163996958286
 GameObject:
@@ -11302,7 +11351,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &224994163996958287
 Transform:
@@ -11378,7 +11427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &224994164642965983
 Transform:
@@ -11445,6 +11494,7 @@ MonoBehaviour:
   fireInScene: 2
   firePower: 1
   fireAudio: {fileID: 0}
+  canonAnimation: []
 --- !u!1 &224994165014255651
 GameObject:
   m_ObjectHideFlags: 0
@@ -11461,7 +11511,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!82 &224994165014255652
 AudioSource:
@@ -11475,7 +11525,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 010c51ce0d7618848b55efeac7d4906b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11483,9 +11533,9 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 4
   MaxDistance: 500
-  Pan2D: 1
+  Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -11519,7 +11569,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -11575,7 +11625,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &224994165411422321
 MonoBehaviour:
@@ -11597,6 +11647,7 @@ MonoBehaviour:
   fireInScene: 2
   firePower: 1
   fireAudio: {fileID: 0}
+  canonAnimation: []
 --- !u!82 &224994165411422322
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11609,7 +11660,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 010c51ce0d7618848b55efeac7d4906b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11617,7 +11668,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 4
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -11653,7 +11704,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -12111,7 +12162,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1196954393941686182
 GameObject:
@@ -12129,7 +12180,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1251973452797495190
 Transform:
@@ -12201,7 +12252,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!198 &1457201616349957302
 ParticleSystem:
@@ -21267,7 +21318,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 27.7
+      scalar: 15
       minScalar: -5
       maxCurve:
         serializedVersion: 2
@@ -21365,7 +21416,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -30330,7 +30381,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 27.7
+      scalar: 15
       minScalar: -5
       maxCurve:
         serializedVersion: 2
@@ -30428,7 +30479,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -34803,7 +34854,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 27.7
+      scalar: 15
       minScalar: -5
       maxCurve:
         serializedVersion: 2
@@ -34901,7 +34952,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -39529,8 +39580,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.5
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -39564,7 +39615,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 19.2
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -39662,7 +39713,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -44191,8 +44242,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.5
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -44226,7 +44277,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 19.2
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -44324,7 +44375,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -48927,8 +48978,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.5
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -48962,7 +49013,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 19.2
+      scalar: 8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -49060,8 +49111,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 1
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -53591,7 +53642,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &4315680001892797663
 GameObject:
@@ -53609,7 +53660,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &4315680002323788940
 GameObject:
@@ -53627,7 +53678,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &4414312069012063328
 MeshRenderer:
@@ -53932,7 +53983,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!199 &5329272899077624773
 ParticleSystemRenderer:
@@ -54206,7 +54257,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &5399237724795456106
 GameObject:
@@ -54224,7 +54275,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5511342591877065763
 Transform:
@@ -54301,6 +54352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9046366026513989908}
+  - component: {fileID: 6411429942053464531}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -54308,6 +54360,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &6411429942053464531
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6411429942053464530}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 88d4ac6c47ad4b747ac79277e193e8c5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 88d4ac6c47ad4b747ac79277e193e8c5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6411429942444265857
 GameObject:
   m_ObjectHideFlags: 0
@@ -54317,6 +54385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9046366026627856711}
+  - component: {fileID: 6411429942444265858}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -54324,6 +54393,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &6411429942444265858
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6411429942444265857}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 88d4ac6c47ad4b747ac79277e193e8c5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 88d4ac6c47ad4b747ac79277e193e8c5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6419275398243736577
 GameObject:
   m_ObjectHideFlags: 0
@@ -54340,7 +54425,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1001 &6444945318569652020
 PrefabInstance:
@@ -54427,7 +54512,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &6488156502867895029
 GameObject:
@@ -54445,7 +54530,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &6622172237024352038
 GameObject:
@@ -54456,6 +54541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9121041558528557024}
+  - component: {fileID: 6622172237024352039}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -54463,6 +54549,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &6622172237024352039
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6622172237024352038}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 88d4ac6c47ad4b747ac79277e193e8c5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 88d4ac6c47ad4b747ac79277e193e8c5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6726907200368362743
 GameObject:
   m_ObjectHideFlags: 0
@@ -54596,7 +54698,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7004383022901902967
 GameObject:
@@ -54614,7 +54716,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7026239832887504684
 GameObject:
@@ -54632,7 +54734,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7026239833293084543
 GameObject:
@@ -54650,7 +54752,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7073965617730287824
 GameObject:
@@ -54668,7 +54770,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7105942330855549323
 GameObject:
@@ -54686,7 +54788,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1001 &7301063997254928883
 PrefabInstance:
@@ -59583,7 +59685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &8479974039410211955
 MeshRenderer:
@@ -59718,7 +59820,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &8554935618394021651
 GameObject:
@@ -59736,7 +59838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!198 &8577781976192327108
 ParticleSystem:
@@ -69274,7 +69376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 57902848279563198}
-  - {fileID: 1156558712}
+  - {fileID: 749941622}
   - {fileID: 5511342591877065763}
   m_Father: {fileID: 519986675}
   m_RootOrder: 0

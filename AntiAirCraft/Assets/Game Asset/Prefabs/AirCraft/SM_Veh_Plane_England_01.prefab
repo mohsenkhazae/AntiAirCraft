@@ -203,6 +203,7 @@ MonoBehaviour:
   bomb: {fileID: 1841480673400448, guid: 4b2e4025eb680b14e848bd6a3677a21a, type: 3}
   bombPoint: {fileID: 4914266613929159045}
   target: {fileID: 0}
+  state: 1
 --- !u!64 &418341899385482487
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d48357353afeaf34fa3485cc8f2377a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -237,7 +238,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 45
+  MinDistance: 6
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

@@ -11,7 +11,6 @@ public class ManageAirCraft : MonoBehaviour
     public GameObject AntiAirRaidCenter;
     public GameObject[] airCraftObject;
     public AirCraft currentAirCraft;
-    private int indexAir = 0;
     public bool[] Lines;
     public float heightLines = 8;
     public int score;
@@ -67,7 +66,6 @@ public class ManageAirCraft : MonoBehaviour
         public float f3;
     }
     public healthVariable HealthV;
-
     [System.Serializable]
     public class powerVariable
     {
@@ -83,7 +81,6 @@ public class ManageAirCraft : MonoBehaviour
         public float f3;
     }
     public powerVariable PowerV;
-
     [System.Serializable]
     public class FireRateVariable
     {
@@ -131,17 +128,15 @@ public class ManageAirCraft : MonoBehaviour
         {
             waveCountDown -= Time.deltaTime;
         }
-
         if (TargetLeft == 0)
         {
             GameOver();
         }
-        scoreText.text = score.ToString();
-
     }
     IEnumerator SpawnWave()
     {
         state = StateSpawn.SPAWNING;
+        initialNextWave();
         wavePanel.SetActive(false);
         waveOnline.text = wave.number.ToString();
         //do in wave
@@ -156,9 +151,9 @@ public class ManageAirCraft : MonoBehaviour
     }
     public void SpawnEnemy()
     {
+        Debug.Log("spawn enemy");
         int AirType = Random.Range(0, airCraftObject.Length);
         int Point = Random.Range(0, spawnPoint.Length);
-
         GameObject cloneAirCraft = Instantiate(airCraftObject[AirType], spawnPoint[Point].transform.position, spawnPoint[Point].transform.rotation);
         currentAirCraft = cloneAirCraft.GetComponent<AirCraft>();
         currentAirCraft.currentLine = 0;
@@ -174,7 +169,8 @@ public class ManageAirCraft : MonoBehaviour
         }
         currentAirCraft.leftPoint = spawnPoint[0].transform;
         currentAirCraft.rightPoint = spawnPoint[1].transform;
-        currentAirCraft.letMove = true;
+        currentAirCraft.state=AirCraft.StateMove.WAITING ;
+        currentAirCraft.manageAirCraft = this;
     }
 
     void WaveCompleted()///begin a new wave
@@ -190,6 +186,7 @@ public class ManageAirCraft : MonoBehaviour
 
     void initialNextWave()
     {
+        Debug.Log("initial next wave");
         SpeedV.f1 = 1 + SpeedV.f1Factor * Mathf.Pow(wave.number - SpeedV.baseLevel, SpeedV.f1Power);
         SpeedV.f2 = 1 + SpeedV.f2Factor * Mathf.Pow(wave.number - SpeedV.baseLevel, SpeedV.f2Power);
         SpeedV.f3 = Mathf.Min(1, (Mathf.Max(wave.number, SpeedV.hardLevel + SpeedV.baseLevel) - (SpeedV.hardLevel - SpeedV.baseLevel)) / SpeedV.f3Deno);
@@ -217,6 +214,7 @@ public class ManageAirCraft : MonoBehaviour
 
     bool EnemyIsAlive()
     {
+        Debug.Log("enemy is alive");
         searchCountdown -=Time.deltaTime;
         if (searchCountdown <= 0f)
         {

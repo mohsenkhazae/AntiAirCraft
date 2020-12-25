@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DestroyIt.cs" />
     <Compile Include="Assets\Game Asset\script\AirCraft.cs" />
     <Compile Include="Assets\Game Asset\script\Artillery.cs" />
     <Compile Include="Assets\Game Asset\script\BombExplosion.cs" />

@@ -9,7 +9,7 @@ public class BombExplosion : MonoBehaviour
     public ManageAirCraft manageAirCraft;
     void Start()
     {
-        manageAirCraft = GameObject.FindObjectOfType<ManageAirCraft>();
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -19,25 +19,21 @@ public class BombExplosion : MonoBehaviour
             manageAirCraft.TargetLeft--;
             if (collision.gameObject.TryGetComponent(out TargetBuilding targetBuilding))
             {
-                //targetBuilding.InUse = true;
-                if(targetBuilding.building) targetBuilding.building.SetActive(false);
-                if(targetBuilding.crashBuilding) targetBuilding.crashBuilding.SetActive(true);
+                StartCoroutine(ChangeBuilding(targetBuilding));
             }
         }
         ContactPoint contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point;
         Instantiate(explosionPrefab, pos, rot);
-        Destroy(gameObject);
-
     }
-    void OnBecameInvisible()
+
+    IEnumerator ChangeBuilding(TargetBuilding targetBuilding)
     {
-        if (Artillery)
-        {
-         Artillery.countShoot--;
-        //Debug.Log("OnBecameInvisible");
-        Destroy(gameObject); 
-        }
+        yield return new WaitForSeconds(.6f);
+        if (targetBuilding.building) targetBuilding.building.SetActive(false);
+        if (targetBuilding.crashBuilding) targetBuilding.crashBuilding.SetActive(true);
+        Destroy(gameObject);
+        yield break;
     }
 }

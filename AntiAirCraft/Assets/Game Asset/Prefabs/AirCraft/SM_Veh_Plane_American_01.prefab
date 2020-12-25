@@ -1554,6 +1554,7 @@ MonoBehaviour:
   bomb: {fileID: 1841480673400448, guid: 4b2e4025eb680b14e848bd6a3677a21a, type: 3}
   bombPoint: {fileID: 1796823108167813045}
   target: {fileID: 0}
+  state: 1
 --- !u!64 &1494858887031620131
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1588,7 +1589,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 45
+  MinDistance: 6
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

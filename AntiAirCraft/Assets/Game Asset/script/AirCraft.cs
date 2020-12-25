@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,80 +22,43 @@ public class AirCraft : MonoBehaviour
     public GameObject bomb;
     public GameObject bombPoint;
     public GameObject target;
+    public enum StateMove { MOVING, WAITING }
+    public StateMove state = StateMove.WAITING;
+    RaycastHit hit;
+    private float searchCountDown = .5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        manageAirCraft = GameObject.FindObjectOfType<ManageAirCraft>();
+        //manageAirCraft = GameObject.FindObjectOfType<ManageAirCraft>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (letMove)
+        if (state == StateMove.WAITING)
         {
-            if (!manageAirCraft.Lines[currentLine])
+            if (LineIsEmpty())
             {
-                letMove = false;
                 if (bombing)
                 {
-                    if (manageAirCraft.AntiAirRaidCenter.activeSelf)
-                    {
-                        target = manageAirCraft.AntiAirRaidCenter;
-                        transform.position = new
-                            Vector3(transform.position.x, transform.position.y, manageAirCraft.AntiAirRaidCenter.transform.position.z);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < manageAirCraft.targets.Length; i++)
-                        {
-                            if (manageAirCraft.targets[i].TryGetComponent(out TargetBuilding targetBuilding))
-                            {
-                                if (!targetBuilding.InUse)
-                                {
-                                    if (target == null) target = manageAirCraft.targets[i];
-                                    if (Mathf.Abs(transform.position.x - manageAirCraft.targets[i].transform.position.x) <
-                                        Mathf.Abs(transform.position.x - target.transform.position.x))
-                                    {
-                                        target = manageAirCraft.targets[i];
-
-                                    }
-                                }
-                            }
-                        }
-                        if (target)
-                        {
-                            transform.position = new 
-                                Vector3(transform.position.x, transform.position.y, target.transform.position.z);
-                        }
-                    }
+                    SetPosition();
                 }
-                move = true;
+                manageAirCraft.Lines[currentLine] = true;
+                state = StateMove.MOVING;
             }
+            else return;
         }
-        if (move)
+        if (state == StateMove.MOVING)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
-            manageAirCraft.Lines[currentLine] = true;
-            switch (direction)
+            if (EndLine())
             {
-                case Direction.east:
-                    if (transform.position.x > leftPoint.transform.position.x)
-                    {
-                        ChangeLine();
-                    }
-                    break;
-                case Direction.west:
-                    if (transform.position.x < rightPoint.transform.position.x)
-                    {
-                        ChangeLine();
-                    }
-                    break;
+                ChangeLine();
             }
         }
         if (bombing)
         {
-            RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
             {
                 if (hit.collider.tag == "target")
@@ -103,10 +67,11 @@ public class AirCraft : MonoBehaviour
                     {
                         if (!targetBuilding.InUse)
                         {
-                            GameObject cloneAirCraft = Instantiate(bomb, bombPoint.transform.position, bombPoint.transform.rotation);
-                            cloneAirCraft.GetComponent<Rigidbody>().AddForce(Vector3.up * -500);
-                            bombing = false;
+                            GameObject cloneBomb = Instantiate(bomb, bombPoint.transform.position, bombPoint.transform.rotation);
+                            cloneBomb.GetComponent<Rigidbody>().AddForce(Vector3.up * -1000);
+                            cloneBomb.GetComponent<BombExplosion>().manageAirCraft = manageAirCraft;
                             targetBuilding.InUse = true;
+                            bombing = false;
                         }
                     }
                 }
@@ -114,11 +79,75 @@ public class AirCraft : MonoBehaviour
         }
     }
 
+    private void SetPosition()
+    {
+        if (manageAirCraft.AntiAirRaidCenter.activeSelf)
+        {
+            target = manageAirCraft.AntiAirRaidCenter;
+            transform.position = new
+                Vector3(transform.position.x, transform.position.y, manageAirCraft.AntiAirRaidCenter.transform.position.z);
+        }
+        else
+        {
+            for (int i = 0; i < manageAirCraft.targets.Length; i++)
+            {
+                if (manageAirCraft.targets[i].TryGetComponent(out TargetBuilding targetBuilding))
+                {
+                    if (!targetBuilding.InUse)
+                    {
+                        if (target == null) target = manageAirCraft.targets[i];
+                        if (Mathf.Abs(transform.position.x - manageAirCraft.targets[i].transform.position.x) <
+                            Mathf.Abs(transform.position.x - target.transform.position.x))
+                        {
+                            target = manageAirCraft.targets[i];
+
+                        }
+                    }
+                }
+            }
+            if (target)
+            {
+                transform.position = new
+                    Vector3(transform.position.x, transform.position.y, target.transform.position.z);
+            }
+        }
+    }
+
+    bool LineIsEmpty()
+    {
+        if (!manageAirCraft.Lines[currentLine])
+        {
+            return true;
+        }
+        return false;
+    }
+    bool EndLine()
+    {
+        searchCountDown -= Time.deltaTime;
+        if (searchCountDown <= 0f)
+        {
+            searchCountDown = .5f;
+            switch (direction)
+            {
+                case Direction.east:
+                    if (transform.position.x > leftPoint.transform.position.x)
+                    {
+                        return true;
+                    }
+                    break;
+                case Direction.west:
+                    if (transform.position.x < rightPoint.transform.position.x)
+                    {
+                        return true;
+                    }
+                    break;
+            }
+        }
+        return false;
+    }
     public void ChangeLine()
     {
         //Debug.Log("ChangeLine");
-        move = false;
-        letMove = false;
         manageAirCraft.Lines[currentLine] = false;
         currentLine++;
         if (currentLine > manageAirCraft.Lines.Length-1)/// delete object
@@ -127,7 +156,6 @@ public class AirCraft : MonoBehaviour
         }
         else
         {
-            //manageAirCraft.Lines[currentLine] = true;
             if (currentLine == manageAirCraft.Lines.Length - 1)///bombing
             {
                 bombing = true;
@@ -137,7 +165,7 @@ public class AirCraft : MonoBehaviour
             else direction = Direction.west;
             transform.position = new Vector3(transform.position.x, transform.position.y - manageAirCraft.heightLines, transform.position.z);
             transform.rotation = Quaternion.Inverse(transform.rotation);
-            letMove = true;
+            state = StateMove.WAITING;
         }
     }
 }
