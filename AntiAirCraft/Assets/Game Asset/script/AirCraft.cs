@@ -22,6 +22,8 @@ public class AirCraft : MonoBehaviour
     public GameObject bomb;
     public GameObject bombPoint;
     public GameObject target;
+    public GameObject prop;
+    private Collider _collider;
     public enum StateMove { MOVING, WAITING }
     public StateMove state = StateMove.WAITING;
     RaycastHit hit;
@@ -31,6 +33,7 @@ public class AirCraft : MonoBehaviour
     void Start()
     {
         //manageAirCraft = GameObject.FindObjectOfType<ManageAirCraft>();
+        _collider = GetComponent<MeshCollider>();
     }
 
     // Update is called once per frame
@@ -77,6 +80,10 @@ public class AirCraft : MonoBehaviour
                 }
             }
         }
+        if (prop)
+        {
+            prop.transform.Rotate(Vector3.forward * Time.deltaTime * 1000);
+        }
     }
 
     private void SetPosition()
@@ -111,6 +118,7 @@ public class AirCraft : MonoBehaviour
                     Vector3(transform.position.x, transform.position.y, target.transform.position.z);
             }
         }
+        _collider.enabled = false;
     }
 
     bool LineIsEmpty()

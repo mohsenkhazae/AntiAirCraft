@@ -7,16 +7,17 @@ public class Artillery : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
     public GameObject fireEffect;
-    public int countShoot;
+
     public float fireRate;
-    public int fireInScene;
+
     public float firePower;
     public AudioSource fireAudio;
     public Animation[] canonAnimation;
+    public ManageArtillery manageArtillery;
 
     public void Fire()
     {
-        if (countShoot < fireInScene && gameObject.activeSelf)
+        if (manageArtillery.countShoot < manageArtillery.fireInScene && gameObject.activeSelf)
         {
             GameObject cloneprojectile = Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
             cloneprojectile.GetComponent<Rigidbody>().AddForce(cloneprojectile.transform.forward * 5000, ForceMode.Acceleration);
@@ -36,7 +37,7 @@ public class Artillery : MonoBehaviour
                 fireAudio.Play();
             }
             else { fireAudio.Play(); }
-            countShoot++;
+            manageArtillery.countShoot++;
         }
     }
     // Start is called before the first frame update
@@ -44,6 +45,7 @@ public class Artillery : MonoBehaviour
     {
         fireAudio = GetComponent<AudioSource>();
         canonAnimation = gameObject.GetComponentsInChildren<Animation>();
+        manageArtillery = GetComponentInParent<ManageArtillery>();
     }
 
     // Update is called once per frame

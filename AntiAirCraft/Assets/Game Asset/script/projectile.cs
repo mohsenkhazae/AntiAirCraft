@@ -22,7 +22,7 @@ public class projectile : MonoBehaviour
         {
             AirCraft air = collision.collider.gameObject.GetComponent<AirCraft>();
             air.health -= power;
-            if (air.health < 0)
+            if (air.health <= .05f)
             {
                 air.manageAirCraft.Lines[air.currentLine] = false;
                 air.manageAirCraft.score += air.score;
@@ -32,7 +32,7 @@ public class projectile : MonoBehaviour
         }
         if (Artillery)
         {
-            Artillery.countShoot--;
+            Artillery.manageArtillery.countShoot--;
         }
         ContactPoint contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
@@ -49,7 +49,7 @@ public class projectile : MonoBehaviour
             //Debug.Log("Nothing has been detected");
             if (Artillery)
             {
-                Artillery.countShoot--;
+                Artillery.manageArtillery.countShoot--;
                 Destroy(gameObject);
             }
         }
