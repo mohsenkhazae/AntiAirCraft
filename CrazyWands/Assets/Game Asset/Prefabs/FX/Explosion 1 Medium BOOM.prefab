@@ -424,7 +424,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -477,7 +477,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -9600,7 +9600,7 @@ GameObject:
   - component: {fileID: 7554648173609335956}
   - component: {fileID: 7554648173609223476}
   - component: {fileID: 2148675621612012959}
-  - component: {fileID: -8235158542844508485}
+  - component: {fileID: 6736410358822082517}
   m_Layer: 0
   m_Name: Explosion 1 Medium BOOM
   m_TagString: Untagged
@@ -14392,7 +14392,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c17f743326c2d5448d20eebeffb6312, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a1a9323cfce46cb4597660744ac074fd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14478,7 +14478,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8235158542844508485
+--- !u!114 &6736410358822082517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14487,7 +14487,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7554648173594420724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e543ce1d7ad64e4e93450e310caecd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c3d1a202c824154ba6ff837c75afaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delayTime: 6

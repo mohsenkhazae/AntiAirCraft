@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  speed: 25
-  baseSpeed: 25
+  speed: 20
+  baseSpeed: 20
   score: 100
   currentLine: 0
   direction: 0

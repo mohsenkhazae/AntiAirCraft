@@ -69,7 +69,7 @@
     <Compile Include="Assets\Game Asset\script\AirCraft.cs" />
     <Compile Include="Assets\Game Asset\script\Artillery.cs" />
     <Compile Include="Assets\Game Asset\script\BombExplosion.cs" />
-    <Compile Include="Assets\Game Asset\script\DestroyIt.cs" />
+    <Compile Include="Assets\Game Asset\script\DestroyParticle.cs" />
     <Compile Include="Assets\Game Asset\script\FPSDisplay.cs" />
     <Compile Include="Assets\Game Asset\script\ManageAirCraft.cs" />
     <Compile Include="Assets\Game Asset\script\ManageArtillery.cs" />
@@ -598,37 +598,37 @@
       <HintPath>C:/Program Files/Unity2019.4.8/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/AntiAirCraft_project/AntiAirCraftRepo/CrazyWands/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
