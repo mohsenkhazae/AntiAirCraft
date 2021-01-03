@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52364d66bc152c4f9c3f4a6c8da314c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 400016, guid: c27e5d7cc3a04444dafa5412fef67ebf, type: 3}
+  explosionPrefab: {fileID: 7554648173594130900, guid: 0a3d52fdfb8c548028c8f813ccd5641d,
+    type: 3}
   Artillery: {fileID: 0}
   power: 1

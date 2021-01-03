@@ -30,7 +30,7 @@ public class BombExplosion : MonoBehaviour
 
     IEnumerator ChangeBuilding(TargetBuilding targetBuilding)
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.1f);
         if (targetBuilding.building) targetBuilding.building.SetActive(false);
         if (targetBuilding.crashBuilding) targetBuilding.crashBuilding.SetActive(true);
         Destroy(gameObject);

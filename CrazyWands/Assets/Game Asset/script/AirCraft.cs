@@ -12,8 +12,6 @@ public class AirCraft : MonoBehaviour
     public int currentLine;
     public enum Direction { east, west}
     public Direction direction;
-    public bool move;
-    public bool letMove;
     public Transform leftPoint;
     public Transform rightPoint;
     public bool bombing;
@@ -23,7 +21,7 @@ public class AirCraft : MonoBehaviour
     public GameObject bombPoint;
     public GameObject target;
     public GameObject prop;
-    private Collider _collider;
+    private Collider[] _collider;
     public enum StateMove { MOVING, WAITING }
     public StateMove state = StateMove.WAITING;
     RaycastHit hit;
@@ -33,7 +31,7 @@ public class AirCraft : MonoBehaviour
     void Start()
     {
         //manageAirCraft = GameObject.FindObjectOfType<ManageAirCraft>();
-        _collider = GetComponent<Collider>();
+        _collider = GetComponents<Collider>();
     }
 
     // Update is called once per frame
@@ -82,7 +80,7 @@ public class AirCraft : MonoBehaviour
         }
         if (prop)
         {
-            prop.transform.Rotate(Vector3.forward * Time.deltaTime * 1000);
+            prop.transform.Rotate(Vector3.right * Time.deltaTime * 2000);
         }
     }
 
@@ -118,7 +116,10 @@ public class AirCraft : MonoBehaviour
                     Vector3(transform.position.x, transform.position.y, target.transform.position.z);
             }
         }
-        _collider.enabled = false;
+        foreach (var item in _collider)
+        {
+            item.enabled = false;
+        }
     }
 
     bool LineIsEmpty()
