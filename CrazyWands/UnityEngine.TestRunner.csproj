@@ -240,7 +240,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>G:/mohsen/AirCraft_project/AirRaid Cartoon/AirRaid Cartoon/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>G:/mohsen/AirCraft_project/AntiAirCraftRepo/CrazyWands/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity2019.4.8\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
